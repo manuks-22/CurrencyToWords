@@ -13,18 +13,27 @@ namespace CurrencyToWordsApp.Service.Service
 
         public Task<string> GetCurrencyValueInWords(double currencyValue)
         {
+            //TODO: Support zero, 1 dollar and not dollars
+
             _logger.Information(@$"Executing method {nameof(GetCurrencyValueInWords)}");
 
-            var currencyIntegralPart = Convert.ToInt32(Math.Floor(currencyValue));
+            var dollarPart = Convert.ToInt32(Math.Floor(currencyValue));
+            int centsPart = Convert.ToInt32((currencyValue - dollarPart) * 100); 
 
             var valueToWordsConverter = new ValueToWordsConverter();
-            var currencyWords = valueToWordsConverter.ConvertNumericValueToWords(currencyIntegralPart);
-            if(!string.IsNullOrEmpty(currencyWords))
+            var dollarWords = valueToWordsConverter.ConvertNumericValueToWords(dollarPart);
+            if(!string.IsNullOrEmpty(dollarWords))
             {
-                currencyWords += " dollars";
+                dollarWords += " dollars";
             }
 
-            return Task.FromResult(currencyWords);
+            var centsWords = valueToWordsConverter.ConvertNumericValueToWords(centsPart);
+            if (!string.IsNullOrEmpty(centsWords))
+            {
+                dollarWords += " " + centsWords + " cents";
+            } 
+
+            return Task.FromResult(dollarWords);
         }
     }
 }
