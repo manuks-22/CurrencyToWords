@@ -7,6 +7,6 @@
         /// </summary>
         /// <param name="currencyValue">The value of currency</param>
         /// <returns></returns>
-        Task<string> GetCurrencyValueInWords(long currencyValue);
+        Task<string> GetCurrencyValueInWords(double currencyValue);
     }
 }

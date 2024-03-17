@@ -11,12 +11,20 @@ namespace CurrencyToWordsApp.Service.Service
             _logger = logger; 
         }
 
-        public Task<string> GetCurrencyValueInWords(long currencyValue)
+        public Task<string> GetCurrencyValueInWords(double currencyValue)
         {
             _logger.Information(@$"Executing method {nameof(GetCurrencyValueInWords)}");
 
+            var currencyIntegralPart = Convert.ToInt32(Math.Floor(currencyValue));
+
             var valueToWordsConverter = new ValueToWordsConverter();
-            return Task.FromResult(valueToWordsConverter.ConvertNumericValueToWords(1000));
+            var currencyWords = valueToWordsConverter.ConvertNumericValueToWords(currencyIntegralPart);
+            if(!string.IsNullOrEmpty(currencyWords))
+            {
+                currencyWords += " dollars";
+            }
+
+            return Task.FromResult(currencyWords);
         }
     }
 }
