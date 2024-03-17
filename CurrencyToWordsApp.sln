@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyToWordsApp.Service.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyToWordsApp.Api", "CurrencyToWordsApp.Api\CurrencyToWordsApp.Api.csproj", "{0CD0E100-3899-4BAB-B038-9674469CEF8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyToWordsApp", "CurrencyToWordsApp\CurrencyToWordsApp.csproj", "{C1255910-206F-4230-A52F-CC4D9D526BBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0CD0E100-3899-4BAB-B038-9674469CEF8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CD0E100-3899-4BAB-B038-9674469CEF8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CD0E100-3899-4BAB-B038-9674469CEF8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1255910-206F-4230-A52F-CC4D9D526BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1255910-206F-4230-A52F-CC4D9D526BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1255910-206F-4230-A52F-CC4D9D526BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1255910-206F-4230-A52F-CC4D9D526BBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
