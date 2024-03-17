@@ -1,5 +1,5 @@
 using CurrencyToWordsApp.Infrastructure.Logging;
-using CurrencyToWordsApp.Service;
+using CurrencyToWordsApp.Service.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurrencyToWordsApp.Controllers

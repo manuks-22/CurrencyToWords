@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CurrencyToWordsApp.Infrastructure\CurrencyToWordsApp.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

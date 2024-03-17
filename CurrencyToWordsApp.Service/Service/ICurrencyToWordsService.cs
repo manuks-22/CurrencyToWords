@@ -1,4 +1,4 @@
-﻿namespace CurrencyToWordsApp.Service
+﻿namespace CurrencyToWordsApp.Service.Service
 {
     public interface ICurrencyToWordsService
     {
