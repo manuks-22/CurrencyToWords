@@ -20,10 +20,11 @@ namespace CurrencyToWordsApp.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<string>> GetCurrencyValueConvertedToWords()
+        [Route("api/GetCurrencyWords/{amount:decimal}")]
+        public async Task<ActionResult<string>> GetCurrencyValueConvertedToWords(double amount)
         {
             _logger.Information("Executing method GetCurrencyValueConvertedToWords");  
-            return await _currencyToWordsService.GetCurrencyValueInWords(1000);
+            return await _currencyToWordsService.GetCurrencyValueInWords(amount);
         }
     }
 }
