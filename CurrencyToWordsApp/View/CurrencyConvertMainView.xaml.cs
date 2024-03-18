@@ -1,4 +1,5 @@
 ﻿using CurrencyToWordsApp.ViewModel;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,8 @@ namespace CurrencyToWordsApp.View
         {
             InitializeComponent();
 
-            var viewModel = new CurrencyConvertMainViewModel();
-            this.DataContext = viewModel;
+            var app = (App)Application.Current;
+            DataContext = app.ServiceProvider.GetRequiredService<CurrencyConvertMainViewModel>();
         }
     }
 }

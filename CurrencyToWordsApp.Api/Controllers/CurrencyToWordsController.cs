@@ -1,3 +1,4 @@
+using CurrencyToWordsApp.Infrastructure.Dto;
 using CurrencyToWordsApp.Infrastructure.Logging;
 using CurrencyToWordsApp.Service.Service;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +22,9 @@ namespace CurrencyToWordsApp.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Route("api/GetCurrencyWords/{amount:decimal}")]
-        public async Task<ActionResult<string>> GetCurrencyValueConvertedToWords(double amount)
+        public async Task<ActionResult<CurrencyWordsDto>> GetCurrencyValueConvertedToWords(double amount)
         {
-            _logger.Information("Executing method GetCurrencyValueConvertedToWords");  
+            _logger.Information("Executing method GetCurrencyValueConvertedToWords"); 
             return await _currencyToWordsService.GetCurrencyValueInWords(amount);
         }
     }

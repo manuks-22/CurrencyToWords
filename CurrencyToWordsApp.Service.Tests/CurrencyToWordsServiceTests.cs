@@ -43,7 +43,7 @@ namespace CurrencyToWordsApp.Service.Tests
             var result = await currencyToWordsService.GetCurrencyValueInWords(inputValue);
 
             // Assert
-            Assert.AreEqual(expectedText, result);
+            Assert.AreEqual(expectedText, result.AmountInWords);
 
         } 
     }

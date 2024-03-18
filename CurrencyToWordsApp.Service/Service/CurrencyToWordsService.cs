@@ -1,4 +1,5 @@
-﻿using CurrencyToWordsApp.Infrastructure.Logging;
+﻿using CurrencyToWordsApp.Infrastructure.Dto;
+using CurrencyToWordsApp.Infrastructure.Logging;
 
 namespace CurrencyToWordsApp.Service.Service
 {
@@ -11,7 +12,7 @@ namespace CurrencyToWordsApp.Service.Service
             _logger = logger; 
         }
 
-        public Task<string> GetCurrencyValueInWords(double currencyValue)
+        public Task<CurrencyWordsDto> GetCurrencyValueInWords(double currencyValue)
         {
             //TODO: Support zero, 1 dollar and not dollars
             // Extend tests
@@ -32,9 +33,9 @@ namespace CurrencyToWordsApp.Service.Service
             if (!string.IsNullOrEmpty(centsWords))
             {
                 dollarWords += " and " + centsWords + " cents";
-            } 
+            }
 
-            return Task.FromResult(dollarWords);
+            return Task.FromResult(new CurrencyWordsDto(dollarWords));
         }
     }
 }

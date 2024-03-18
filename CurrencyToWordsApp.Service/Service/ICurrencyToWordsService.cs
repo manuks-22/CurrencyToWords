@@ -1,4 +1,6 @@
-﻿namespace CurrencyToWordsApp.Service.Service
+﻿using CurrencyToWordsApp.Infrastructure.Dto;
+
+namespace CurrencyToWordsApp.Service.Service
 {
     public interface ICurrencyToWordsService
     {
@@ -7,6 +9,6 @@
         /// </summary>
         /// <param name="currencyValue">The value of currency</param>
         /// <returns></returns>
-        Task<string> GetCurrencyValueInWords(double currencyValue);
+        Task<CurrencyWordsDto> GetCurrencyValueInWords(double currencyValue);
     }
 }
