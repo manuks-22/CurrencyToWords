@@ -21,7 +21,16 @@ namespace CurrencyToWordsApp
 
         public App()
         {
-            ConfigureServices(); 
+            ConfigureServices();
+
+            DispatcherUnhandledException += (sender, args) =>
+            {
+                var logger = ServiceProvider.GetRequiredService<ILogManager>();
+
+                logger.Error("An unhandled exception has occured", args.Exception);
+                MessageBox.Show("An unexpected error has occurred.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                args.Handled = true;  
+            };
         }
 
         private void ConfigureServices()
