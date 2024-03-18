@@ -9,6 +9,7 @@ namespace CurrencyToWordsApp.ApiClient
 {
     internal static class ApiClientConstants
     {
-        internal static string GetCurrencyToWordsUrl = "GetCurrencyToWordsUrl";
+        internal static string ApiBaseUrl = "ApiBaseUrl";
+        internal static string CurrencyToWordsUrl = "GetCurrencyToWordsUrl";
     }
 }

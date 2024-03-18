@@ -24,7 +24,7 @@ namespace CurrencyToWordsApp
 
         public async Task<string> GetAmountInWords(double value)
         {
-            var url = $@"{GetUrl(ApiClientConstants.GetCurrencyToWordsUrl)}{value}";
+            var url = $@"{GetUrl(ApiClientConstants.CurrencyToWordsUrl)}{value}";
             var response = await _restClient.GetAsync<CurrencyWordsDto>(url);
 
             if (response?.Status == null)
@@ -44,8 +44,7 @@ namespace CurrencyToWordsApp
 
         private string GetUrl(string serviceName)
         {
-
-            var baseUrl = _configration["ApiBaseUrl"];
+            var baseUrl = _configration[ApiClientConstants.ApiBaseUrl];
             var serviceUrl = _configration[serviceName];
             return baseUrl + serviceUrl;
         }

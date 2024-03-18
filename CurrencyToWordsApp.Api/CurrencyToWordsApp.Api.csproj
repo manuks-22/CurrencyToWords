@@ -16,4 +16,8 @@
     <ProjectReference Include="..\CurrencyToWordsApp.Service\CurrencyToWordsApp.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
 </Project>
