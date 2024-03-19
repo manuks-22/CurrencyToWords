@@ -61,6 +61,15 @@ namespace CurrencyToWordsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The entered amount should be between {0} and {0}..
+        /// </summary>
+        public static string AmountRangeError {
+            get {
+                return ResourceManager.GetString("AmountRangeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Convert Dolllars To Words.
         /// </summary>
         public static string AppName {
@@ -75,6 +84,33 @@ namespace CurrencyToWordsApp {
         public static string EnterAmount {
             get {
                 return ResourceManager.GetString("EnterAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid number..
+        /// </summary>
+        public static string EnterValidNumberError {
+            get {
+                return ResourceManager.GetString("EnterValidNumberError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid amount value.
+        /// </summary>
+        public static string InvalidAmountValueError {
+            get {
+                return ResourceManager.GetString("InvalidAmountValueError", resourceCulture);
             }
         }
         

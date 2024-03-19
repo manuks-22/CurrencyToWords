@@ -44,4 +44,10 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Resources\TextBoxStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+  </ItemGroup>
+
 </Project>

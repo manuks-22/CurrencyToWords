@@ -4,12 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyToWordsApp"
+        xmlns:validation="clr-namespace:CurrencyToWordsApp.Validation"
+        xmlns:converter="clr-namespace:CurrencyToWordsApp.Converters"
         mc:Ignorable="d"
         Title="{x:Static local:Resource.AppName}"
         Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
-    
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ShowGridLines="True">
+
+        <Window.Resources> 
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="../Resources/TextBoxStyles.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Window.Resources>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ShowGridLines="True">
+        <Grid.Resources>
+            <converter:MultiBindingBooleanToAndConverter x:Key="MultiBindingBooleanToAndConverter"/>
+            <converter:TextLengthToBoolConverter x:Key="TextLengthToBoolConverter"/>
+            <converter:BoolToInvertConverter x:Key="BoolToInvertConverter"/>
+        </Grid.Resources>
+            
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -20,10 +36,41 @@
             <ColumnDefinition Width="*" MinWidth="200"/>
         </Grid.ColumnDefinitions>
 
-        <Label  Content="{x:Static local:Resource.EnterAmount}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Text="{Binding Amount}" />
+        <!--Label-->
+        <Label  Content="{x:Static local:Resource.EnterAmount}" 
+                Grid.Row="0" Grid.Column="0" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Left" 
+                Margin="10"/>
         
-        <Button  Grid.Row="1" Grid.Column="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Submit" Command="{Binding SubmitCommand}" />
+        <!--Amount TextBox-->    
+        <TextBox x:Name="amountTextBox"
+                 Grid.Row="0" Grid.Column="1" 
+                 Margin="10" VerticalAlignment="Center" 
+                 HorizontalAlignment="Stretch" 
+                 Style="{StaticResource textBoxWithErrorCheck}" >
+            <TextBox.Text>
+                <Binding Path="Amount" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validation:AmountValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>                
+            </TextBox.Text>
+        </TextBox>
 
+        <!--Submit Button-->
+        <Button  Grid.Row="1" Grid.Column="1"
+                 Margin="10" 
+                 VerticalAlignment="Center" 
+                 HorizontalAlignment="Center" 
+                 Content="{x:Static local:Resource.Submit}"
+                 Command="{Binding SubmitCommand}">
+                 <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource MultiBindingBooleanToAndConverter}">
+                    <Binding ElementName="amountTextBox" Path="(Validation.HasError)" Converter="{StaticResource BoolToInvertConverter}"/>
+                        <Binding ElementName="amountTextBox" Path="Text.Length" Converter="{StaticResource TextLengthToBoolConverter}"/>
+                    </MultiBinding>
+                </Button.IsEnabled> 
+        </Button>
     </Grid>
 </Window>

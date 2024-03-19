@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AmountRangeError" xml:space="preserve">
+    <value>The entered amount should be between {0} and {0}.</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Convert Dolllars To Words</value>
   </data>
   <data name="EnterAmount" xml:space="preserve">
     <value>Enter Amount</value>
+  </data>
+  <data name="EnterValidNumberError" xml:space="preserve">
+    <value>Please enter a valid number.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="InvalidAmountValueError" xml:space="preserve">
+    <value>Invalid amount value</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
