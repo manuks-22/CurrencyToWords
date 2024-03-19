@@ -33,14 +33,11 @@ namespace CurrencyToWordsApp.ViewModel
             SubmitCommand = new RelayCommand(Submit);
         }
 
-        private  async void Submit()
+        private async void Submit()
         {
-            var amountToConvert = Convert.ToDouble(Amount);
-            bool isSuccess = Double.TryParse(_amount, new NumberFormatInfo { NumberDecimalSeparator = "," }, out double amountValue);
-            
-            if(isSuccess)
-            { 
-                var result = await _apiClient.GetAmountInWords(amountToConvert);
+            if (double.TryParse(_amount, new NumberFormatInfo { NumberDecimalSeparator = "," }, out double amountValue))
+            {
+                var result = await _apiClient.GetAmountInWords(amountValue);
                 System.Windows.MessageBox.Show($"Amount: {result}");
             }
             else
