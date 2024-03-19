@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace CurrencyToWordsApp.Converters
 {
-    public class TextLengthToBoolConverter : IValueConverter
+    public class EmptyTextLengthToBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

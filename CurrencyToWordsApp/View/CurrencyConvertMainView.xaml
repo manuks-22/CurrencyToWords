@@ -22,7 +22,7 @@
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.Resources>
             <converter:MultiBindingBooleanToAndConverter x:Key="MultiBindingBooleanToAndConverter"/>
-            <converter:TextLengthToBoolConverter x:Key="TextLengthToBoolConverter"/>
+            <converter:EmptyTextLengthToBoolConverter x:Key="EmptyTextLengthToBoolConverter"/>
             <converter:BoolToInvertConverter x:Key="BoolToInvertConverter"/>
         </Grid.Resources>
             
@@ -68,7 +68,7 @@
                  <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource MultiBindingBooleanToAndConverter}">
                     <Binding ElementName="amountTextBox" Path="(Validation.HasError)" Converter="{StaticResource BoolToInvertConverter}"/>
-                        <Binding ElementName="amountTextBox" Path="Text.Length" Converter="{StaticResource TextLengthToBoolConverter}"/>
+                    <Binding ElementName="amountTextBox" Path="Text.Length" Converter="{StaticResource EmptyTextLengthToBoolConverter}"/>
                     </MultiBinding>
                 </Button.IsEnabled> 
         </Button>

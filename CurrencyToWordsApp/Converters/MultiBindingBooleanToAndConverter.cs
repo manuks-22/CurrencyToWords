@@ -17,7 +17,12 @@ namespace CurrencyToWordsApp.Converters
 
             foreach (var value in values)
             {
-                if (value is bool boolValue && !boolValue)
+                if (value is bool boolValue)
+                {
+                    if (!boolValue)
+                        return false; 
+                }
+                else
                     return false;
             }
             return true;

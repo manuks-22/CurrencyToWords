@@ -6,14 +6,14 @@ using CurrencyToWordsApp.RestClient;
 using Microsoft.Extensions.Configuration;
 using Moq;
 
-namespace CurrencyToWordsAppTests
+namespace CurrencyToWordsAppTests.ApiClient
 {
     [TestClass]
-    public class CurrencyToWordsAppTests
+    public class ApiClientTests
     {
         private Mock<IConfigurationRoot> _configrationRootMock;
         private Mock<ILogManager> _loggerMock;
-        private Mock<IRestClient> _restClientMock; 
+        private Mock<IRestClient> _restClientMock;
 
         [TestInitialize]
         public void Initialize()
@@ -42,7 +42,7 @@ namespace CurrencyToWordsAppTests
             await apiClient.GetAmountInWords(amount);
 
             // Assert
-            _restClientMock.Verify(x=>x.GetAsync<CurrencyWordsDto>(It.Is<string>(url =>  url == $@"{apiBaseUrl}{currencyUrl}{amount}")));
+            _restClientMock.Verify(x => x.GetAsync<CurrencyWordsDto>(It.Is<string>(url => url == $@"{apiBaseUrl}{currencyUrl}{amount}")));
         }
 
         [TestMethod]

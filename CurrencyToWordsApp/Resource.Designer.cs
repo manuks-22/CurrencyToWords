@@ -61,7 +61,7 @@ namespace CurrencyToWordsApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The entered amount should be between {0} and {0}..
+        ///   Looks up a localized string similar to The entered amount should be between {0} and {1}.
         /// </summary>
         public static string AmountRangeError {
             get {

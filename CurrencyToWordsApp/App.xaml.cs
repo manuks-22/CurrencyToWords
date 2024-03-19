@@ -41,7 +41,7 @@ namespace CurrencyToWordsApp
 
             services.AddSingleton(configuration);
             services.AddSingleton<ILogManager, ClientLogger>();
-            services.AddSingleton<ICurrencyToWordsApiClient, CurrencyToWordsApiClient>();
+            services.AddSingleton<ICurrencyToWordsApiClient, CurrencyToWordsApiClient>(); 
             services.AddSingleton<IRestClient, RestClient.RestClient>();
             services.AddTransient<CurrencyConvertMainViewModel>();
              

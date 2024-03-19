@@ -1,11 +1,7 @@
 ﻿using CurrencyToWordsApp.RestClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moq;
 
-namespace CurrencyToWordsAppTests
+namespace CurrencyToWordsAppTests.Rest
 {
     [TestClass]
     public class RestClientTests
@@ -18,7 +14,7 @@ namespace CurrencyToWordsAppTests
             var restClient = new RestClient();
 
             // Act
-           await restClient.GetAsync<string>(null);
+            await restClient.GetAsync<string>(null);
         }
 
         [TestMethod]
