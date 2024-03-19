@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace CurrencyToWordsApp.Validation
@@ -17,12 +13,10 @@ namespace CurrencyToWordsApp.Validation
         {
             if (enteredValue == null)
                 return new ValidationResult(false, string.Empty);
-            string valueToValidate = enteredValue.ToString(); 
-             
-            var numberFormat = new NumberFormatInfo
-            {
-                NumberDecimalSeparator = ","
-            };
+
+            string valueToValidate = string.Empty;
+            if (enteredValue is string stringValue)
+                valueToValidate = stringValue.ToString(); 
 
             if (!double.TryParse(valueToValidate, NumberStyles.Any, new NumberFormatInfo { NumberDecimalSeparator = ","}, out double parsedValue))
             {

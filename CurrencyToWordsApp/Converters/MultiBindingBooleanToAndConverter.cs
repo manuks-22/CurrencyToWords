@@ -12,12 +12,12 @@ namespace CurrencyToWordsApp.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values == null || values.Length ==0)
+            if (values == null || values.Length == 0)
                 return false;
 
             foreach (var value in values)
             {
-                if (value is bool boolValue && boolValue == false)
+                if (value is bool boolValue && !boolValue)
                     return false;
             }
             return true;

@@ -19,7 +19,7 @@
             </ResourceDictionary>
         </Window.Resources>
 
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ShowGridLines="True">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.Resources>
             <converter:MultiBindingBooleanToAndConverter x:Key="MultiBindingBooleanToAndConverter"/>
             <converter:TextLengthToBoolConverter x:Key="TextLengthToBoolConverter"/>
