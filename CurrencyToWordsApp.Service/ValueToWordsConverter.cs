@@ -29,6 +29,9 @@ namespace CurrencyToWordsApp.Service
 
         public string ConvertNumericValueToWords(int valueToConvertToWords)
         {
+            if (valueToConvertToWords == 0)
+                return "Zero";
+
             var result = string.Empty;
 
             int numericValue = valueToConvertToWords;
