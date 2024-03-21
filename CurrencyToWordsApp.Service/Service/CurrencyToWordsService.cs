@@ -15,9 +15,6 @@ namespace CurrencyToWordsApp.Service.Service
 
         public Task<CurrencyWordsDto> GetCurrencyValueInWords(double currencyValue)
         {
-            //TODO: Support zero, 1 dollar and not dollars
-            // Extend tests
-
             _logger.Information(@$"Executing service method {nameof(GetCurrencyValueInWords)}");
 
             var dollarPart = Convert.ToInt32(Math.Floor(currencyValue));
@@ -27,7 +24,7 @@ namespace CurrencyToWordsApp.Service.Service
             var dollarWords = valueToWordsConverter.ConvertNumericValueToWords(dollarPart);
             if(!string.IsNullOrEmpty(dollarWords))
             {
-                dollarWords += (dollarPart > 1 ? " dollars" : " dollar");
+                dollarWords += (dollarPart == 1 ? " dollar" : " dollars");
             }
 
             if (centsPart > 0)
@@ -41,5 +38,6 @@ namespace CurrencyToWordsApp.Service.Service
 
             return Task.FromResult(new CurrencyWordsDto(dollarWords));
         }
+
     }
 }
