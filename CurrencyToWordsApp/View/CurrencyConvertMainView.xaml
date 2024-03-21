@@ -8,7 +8,7 @@
         xmlns:converter="clr-namespace:CurrencyToWordsApp.Converters"
         mc:Ignorable="d"
         Title="{x:Static local:Resource.AppName}"
-        Height="450" Width="800"
+        Height="300" Width="600"
         WindowStartupLocation="CenterScreen">
 
         <Window.Resources> 

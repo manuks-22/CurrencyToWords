@@ -88,6 +88,15 @@ namespace CurrencyToWordsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The amount should be &apos;{0}&apos; separated..
+        /// </summary>
+        public static string EnterValidDecimalNumberError {
+            get {
+                return ResourceManager.GetString("EnterValidDecimalNumberError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a valid number..
         /// </summary>
         public static string EnterValidNumberError {
@@ -106,7 +115,7 @@ namespace CurrencyToWordsApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid amount value.
+        ///   Looks up a localized string similar to Invalid amount value..
         /// </summary>
         public static string InvalidAmountValueError {
             get {

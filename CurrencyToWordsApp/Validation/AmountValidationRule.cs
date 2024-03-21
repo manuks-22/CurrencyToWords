@@ -26,7 +26,7 @@ namespace CurrencyToWordsApp.Validation
             // Validate . is not accepted as decimal separator
             if(valueToValidate.Contains(inValidDecimalSeparator))
             {
-                return new ValidationResult(false, Resource.EnterValidNumberError);
+                return new ValidationResult(false, string.Format(Resource.EnterValidDecimalNumberError, validDecimalSeparator) );
             }
 
             // Validate that not more than two valid separators are present
@@ -40,7 +40,7 @@ namespace CurrencyToWordsApp.Validation
             {
                 var decimalString = valueToValidate.Split(validDecimalSeparator);
                 if (decimalString[1].Length > 2)
-                    return new ValidationResult(false, Resource.EnterValidNumberError);
+                    return new ValidationResult(false, string.Format(Resource.AmountRangeError, MinValue, MaxValue));
             }
 
 

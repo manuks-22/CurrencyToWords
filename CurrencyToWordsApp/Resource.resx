@@ -126,6 +126,9 @@
   <data name="EnterAmount" xml:space="preserve">
     <value>Enter Amount</value>
   </data>
+  <data name="EnterValidDecimalNumberError" xml:space="preserve">
+    <value>The amount should be '{0}' separated.</value>
+  </data>
   <data name="EnterValidNumberError" xml:space="preserve">
     <value>Please enter a valid number.</value>
   </data>
@@ -133,7 +136,7 @@
     <value>Error</value>
   </data>
   <data name="InvalidAmountValueError" xml:space="preserve">
-    <value>Invalid amount value</value>
+    <value>Invalid amount value.</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
