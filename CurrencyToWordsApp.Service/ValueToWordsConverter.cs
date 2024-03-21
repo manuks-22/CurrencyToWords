@@ -21,79 +21,67 @@ namespace CurrencyToWordsApp.Service
         {
             {10, "ten"}, {20, "twenty"}, {30, "thirty"}, {40, "forty"}, {50, "fifty"},
             {60, "sixty"}, {70, "seventy"}, {80, "eighty"}, {90, "ninety"}
-        };
-
-        private Dictionary<int, string> _thousandsWords = new() { 
-            { 0, "" }, { 1, "thousand" }, { 2, "million" }
-        };
+        }; 
 
         public string ConvertNumericValueToWords(int valueToConvertToWords)
         {
             if (valueToConvertToWords == 0)
-                return "Zero";
+                return "zero";
 
             var result = string.Empty;
-
-            int numericValue = valueToConvertToWords;
-            var stack = new Stack<string>();
-            var thousandsIndex = 0;
-
-            while (numericValue > 0)
+            var millionDigits = valueToConvertToWords / 1000000;
+            if (millionDigits > 0)
             {
-                var thousandsValue = numericValue % 1000;
-
-                if (thousandsValue > 0)
-                {
-
-                    stack.Push(" " + _thousandsWords[thousandsIndex]);
-                }
-                stack.Push(GetWordsFromNumber(thousandsValue));
-
-                numericValue = numericValue / 1000;
-                thousandsIndex++;
+                result = GetWordsForUptoFourDigitNumberNumber(millionDigits) + " million ";
+                valueToConvertToWords = valueToConvertToWords % 1000000;
             }
 
-            if (stack.Any())
+            var thousandsDigit = valueToConvertToWords / 1000;
+            if (thousandsDigit > 0)
             {
-                result = string.Join("", stack).Trim();
+                result += GetWordsForUptoFourDigitNumberNumber(thousandsDigit) + " thousand ";
+                valueToConvertToWords = valueToConvertToWords % 1000;
             }
-            return result; 
+
+            if (valueToConvertToWords > 0)
+            {
+                result += GetWordsForUptoFourDigitNumberNumber(valueToConvertToWords);
+            }
+
+            return result.Trim();
         }
 
-        private string GetWordsFromNumber(long number)
+        private string GetWordsForUptoFourDigitNumberNumber(long number)
         {
             string result = string.Empty;
 
-            if (number >= 100)
+            var hundredsPart = number / 100;
+            if (hundredsPart > 0)
             {
-                var unitsDigit = number / 100;
-                if (number > 0)
-                {
-                    result = " " + _unitsWords[(int)unitsDigit] + " hundred";
-                }
+                result = _unitsWords[(int)hundredsPart] + " hundred ";
+                number = number % 100;
             }
 
-            var tensDigit = number % 100;
-            if (tensDigit > 0)
+            if (number > 0)
             {
-                if (tensDigit > 10 && tensDigit < 20)
+                if (number > 10 && number < 20)
                 {
-                    result += " " + _teensWords[(int)tensDigit];
+                    result += _teensWords[(int)number] + " ";
                 }
                 else
                 {
-                    var unitsDigit = tensDigit % 10;
-                    var tensDigitRounded = tensDigit - unitsDigit;
+                    var unitsDigit = number % 10;
+                    var tensDigitRounded = number - unitsDigit;
 
                     if (tensDigitRounded > 0)
                     {
-                        result += " " + _tensWords[(int)tensDigitRounded];
+                        result += _tensWords[(int)tensDigitRounded] + " ";
                     }
 
                     if (unitsDigit != 0)
                     {
-                        result += " " + _unitsWords[(int)unitsDigit];
-                    } 
+                        result += _unitsWords[(int)unitsDigit];
+                    }
                 }
             }
 

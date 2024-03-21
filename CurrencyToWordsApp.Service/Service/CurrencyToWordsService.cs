@@ -13,7 +13,7 @@ namespace CurrencyToWordsApp.Service.Service
             _logger = logger; 
         }
 
-        public Task<CurrencyWordsDto> GetCurrencyValueInWords(double currencyValue)
+        public Task<CurrencyWordsDto> GetCurrencyValueInWords(decimal currencyValue)
         {
             _logger.Information(@$"Executing service method {nameof(GetCurrencyValueInWords)}");
 
@@ -32,7 +32,7 @@ namespace CurrencyToWordsApp.Service.Service
                 var centsWords = valueToWordsConverter.ConvertNumericValueToWords(centsPart);
                 if (!string.IsNullOrEmpty(centsWords))
                 {
-                    dollarWords += " and " + centsWords + " cents";
+                    dollarWords += " and " + centsWords + (centsPart == 1 ? " cent" : " cents");
                 }
             }
 

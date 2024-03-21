@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CurrencyToWordsApp.Service.Extensions
 {
-    internal static class DoulbleExtension
+    internal static class DecimalExtension
     {
-        public static int GetDecimalPart(this double number)
+        public static int GetDecimalPart(this decimal number)
         {
             //TODO: This is expensive, need a better solution.
             var decimalString = number.ToString(CultureInfo.InvariantCulture);

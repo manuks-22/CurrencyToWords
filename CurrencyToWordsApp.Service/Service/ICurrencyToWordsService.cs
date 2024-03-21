@@ -9,6 +9,6 @@ namespace CurrencyToWordsApp.Service.Service
         /// </summary>
         /// <param name="currencyValue">The value of currency</param>
         /// <returns></returns>
-        Task<CurrencyWordsDto> GetCurrencyValueInWords(double currencyValue);
+        Task<CurrencyWordsDto> GetCurrencyValueInWords(decimal currencyValue);
     }
 }
