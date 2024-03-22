@@ -124,7 +124,7 @@ namespace CurrencyToWordsApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit.
+        ///   Looks up a localized string similar to Convert.
         /// </summary>
         public static string Submit {
             get {

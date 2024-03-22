@@ -67,13 +67,13 @@ namespace CurrencyToWordsAppTests.ValidationRule
         [DataRow("101`12")]
         [DataRow("101^12")]
         [DataRow("101$12")]
-        public void AmountValidationRule_WhenDoubleValueWithInvalidDecimalSeparatorIsPassed_ReturnsInvalidError(string invalidDoubleValue)
+        public void AmountValidationRule_WhenDecimalValueWithInvalidDecimalSeparatorIsPassed_ReturnsInvalidError(string invalidDecimaValue)
         {
             // Arrange 
             var rule = new AmountValidationRule();
 
             // Act
-            var result = rule.Validate(invalidDoubleValue, CultureInfo.CurrentCulture);
+            var result = rule.Validate(invalidDecimaValue, CultureInfo.CurrentCulture);
 
             // Assert
             Assert.IsFalse(result.IsValid);
@@ -87,7 +87,7 @@ namespace CurrencyToWordsAppTests.ValidationRule
         [DataRow("999999,12")]
         [DataRow("999999999,12")]
         [DataRow("999999999")]
-        public void AmountValidationRule_WhenDoubleValueWithInvalidDecimalSeparatorIsPassed_ReturnsValid (string validValue)
+        public void AmountValidationRule_WhenDecimalValueWithInvalidDecimalSeparatorIsPassed_ReturnsValid (string validValue)
         {
             // Arrange 
             var rule = new AmountValidationRule();

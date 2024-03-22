@@ -35,10 +35,13 @@ namespace CurrencyToWordsApp.ViewModel
 
         private async void Submit()
         {
-            if (double.TryParse(_amount, new NumberFormatInfo { NumberDecimalSeparator = "," }, out double amountValue))
+            if (decimal.TryParse(_amount, new NumberFormatInfo { NumberDecimalSeparator = "," }, out decimal amountValue))
             {
                 var result = await _apiClient.GetAmountInWords(amountValue);
-                System.Windows.MessageBox.Show($"Amount: {result}");
+                if(result!= null)
+                {
+                    System.Windows.MessageBox.Show($"Amount: {result}"); 
+                }
             }
             else
             {

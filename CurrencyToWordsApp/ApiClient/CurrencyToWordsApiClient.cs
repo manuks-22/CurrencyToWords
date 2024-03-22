@@ -22,7 +22,7 @@ namespace CurrencyToWordsApp
             _restClient = restClient;
         }
 
-        public async Task<string> GetAmountInWords(double value)
+        public async Task<string> GetAmountInWords(decimal value)
         {
             var url = $@"{GetUrl(ApiClientConstants.CurrencyToWordsUrl)}{value}";
             var response = await _restClient.GetAsync<CurrencyWordsDto>(url);

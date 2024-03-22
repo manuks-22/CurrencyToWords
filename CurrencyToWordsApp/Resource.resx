@@ -139,6 +139,6 @@
     <value>Invalid amount value.</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>Convert</value>
   </data>
 </root>

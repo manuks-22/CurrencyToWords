@@ -29,7 +29,7 @@ namespace CurrencyToWordsAppTests.ApiClient
             // Arrange
             const string apiBaseUrl = $@"https://localhost:7051/";
             const string currencyUrl = $@"CurrencyToWords/api/GetCurrencyWords/";
-            const double amount = 2000.56D;
+            const decimal amount = 2000.56M;
 
             _configrationRootMock.Setup(x => x[ApiClientConstants.ApiBaseUrl]).Returns("https://localhost:7051/");
             _configrationRootMock.Setup(x => x[ApiClientConstants.CurrencyToWordsUrl]).Returns("CurrencyToWords/api/GetCurrencyWords/");

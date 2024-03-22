@@ -8,8 +8,8 @@ namespace CurrencyToWordsApp.Validation
 {
     public class AmountValidationRule : ValidationRule
     {
-        private const double MinValue = 0;
-        private const double MaxValue = 999999999.99;
+        private const decimal MinValue = 0M;
+        private const decimal MaxValue = 999999999.99M;
 
         public override ValidationResult Validate(object enteredValue, CultureInfo cultureInfo)
         {
@@ -44,7 +44,7 @@ namespace CurrencyToWordsApp.Validation
             }
 
 
-            if (!double.TryParse(valueToValidate, NumberStyles.Any, new NumberFormatInfo { NumberDecimalSeparator = validDecimalSeparator }, out double parsedValue))
+            if (!decimal.TryParse(valueToValidate, NumberStyles.Any, new NumberFormatInfo { NumberDecimalSeparator = validDecimalSeparator }, out decimal parsedValue))
             {
                 return new ValidationResult(false, Resource.EnterValidNumberError);
             }
