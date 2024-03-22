@@ -17,7 +17,8 @@ THe project is the CurrencyToWordsApp.Api is the API project.
 3. Start the hosted Api.
 4. Note down the base address of the url.
 5. Replace the ApiBaseUrl in appsettings.json in CurrencyToWordsApp WPF project.
-6. Run the WPF application.
+6. Build the CurrencyToWordsApp WPF project.
+7. Run the WPF application.
 
 
  
