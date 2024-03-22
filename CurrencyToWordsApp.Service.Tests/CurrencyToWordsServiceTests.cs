@@ -8,6 +8,8 @@ namespace CurrencyToWordsApp.Service.Tests
     [TestClass]
     public class CurrencyToWordsServiceTests
     {
+        // TODO: Convert this test to read from a csv file and verify larger data set
+
 
         [DataRow("0", "zero dollars")]
         [DataRow("1", "one dollar")]
@@ -26,6 +28,12 @@ namespace CurrencyToWordsApp.Service.Tests
         [DataRow("1221", "one thousand two hundred twenty one dollars")]
         [DataRow("1213", "one thousand two hundred thirteen dollars")]
         [DataRow("1500", "one thousand five hundred dollars")]
+        [DataRow("1000000", "one million dollars")]
+        [DataRow("1000100", "one million one hundred dollars")]
+        [DataRow("1001000", "one million one thousand dollars")]
+        [DataRow("1099010", "one million ninety nine thousand ten dollars")]
+        [DataRow("9999999", "nine million nine hundred ninety nine thousand nine hundred ninety nine dollars")]
+        [DataRow("99999999", "ninety nine million nine hundred ninety nine thousand nine hundred ninety nine dollars")]
         [DataRow("999999999", "nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine dollars")]
         [DataTestMethod]
         public async Task GetCurrencyValueInWords_WhenExecutedWithValueWithoutCents_ReturnsDollarText(string inputValue, string expectedText)

@@ -113,12 +113,12 @@ namespace CurrencyToWordsAppTests.ValidationRule
         }
 
         [DataTestMethod]
-        [DataRow(100.123)]
-        [DataRow(100.01234)]
-        [DataRow(100.023546)]
-        [DataRow(100.0235467)]
-        [DataRow(100.02354678)]
-        [DataRow(100.023546789)]
+        [DataRow("100.123")]
+        [DataRow("100.01234")]
+        [DataRow("100.023546")]
+        [DataRow("100.0235467")]
+        [DataRow("100.02354678")]
+        [DataRow("100.023546789")]
 
         public void AmountValidationRule_WhenValueWithMoreThanTwoDecimalPointsIsProvided_ReturnsInvalidError(string invalidDecimalPointsValue)
         {
